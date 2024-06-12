@@ -71,30 +71,30 @@ set(LIBVTERM_BIN_VTERM_DUMP_SRC
     )
 
 
-add_executable(unterm ${LIBVTERM_BIN_UNTERM_SRC})
-add_executable(vterm-ctrl ${LIBVTERM_BIN_VTERM_CTRL_SRC})
-add_executable(vterm-dump ${LIBVTERM_BIN_VTERM_DUMP_SRC})
+# add_executable(unterm ${LIBVTERM_BIN_UNTERM_SRC})
+# add_executable(vterm-ctrl ${LIBVTERM_BIN_VTERM_CTRL_SRC})
+# add_executable(vterm-dump ${LIBVTERM_BIN_VTERM_DUMP_SRC})
 
-if(NOT LIBVTERM_BUILD_BIN)
-    set_target_properties(unterm vterm-ctrl vterm-dump PROPERTIES EXCLUDE_FROM_ALL 1 EXCLUDE_FROM_DEFAULT_BUILD 1)
-endif()
+# if(NOT LIBVTERM_BUILD_BIN)
+#     set_target_properties(unterm vterm-ctrl vterm-dump PROPERTIES EXCLUDE_FROM_ALL 1 EXCLUDE_FROM_DEFAULT_BUILD 1)
+# endif()
 
 
-if(LIBVTERM_STATIC_BIN)
-    if(NOT BUILD_SHARED_LIBS)
-        set_target_properties(unterm vterm-ctrl vterm-dump PROPERTIES
-            LINK_SEARCH_START_STATIC ON
-            LINK_SEARCH_END_STATIC ON
-            )
+# if(LIBVTERM_STATIC_BIN)
+#     if(NOT BUILD_SHARED_LIBS)
+#         set_target_properties(unterm vterm-ctrl vterm-dump PROPERTIES
+#             LINK_SEARCH_START_STATIC ON
+#             LINK_SEARCH_END_STATIC ON
+#             )
 
-        target_link_options(unterm PRIVATE -static)
-        target_link_options(vterm-ctrl PRIVATE -static)
-        target_link_options(vterm-dump PRIVATE -static)
-    else()
-        message(WARNING "Ignoring LIBVTERM_STATIC_BIN due BUILD_SHARED_LIBS=ON")
-    endif()
-endif()
+#         target_link_options(unterm PRIVATE -static)
+#         target_link_options(vterm-ctrl PRIVATE -static)
+#         target_link_options(vterm-dump PRIVATE -static)
+#     else()
+#         message(WARNING "Ignoring LIBVTERM_STATIC_BIN due BUILD_SHARED_LIBS=ON")
+#     endif()
+# endif()
 
-target_link_libraries(unterm ${LIBVTERM_TARGET})
-target_link_libraries(vterm-ctrl ${LIBVTERM_TARGET})
-target_link_libraries(vterm-dump ${LIBVTERM_TARGET})
+# target_link_libraries(unterm ${LIBVTERM_TARGET})
+# target_link_libraries(vterm-ctrl ${LIBVTERM_TARGET})
+# target_link_libraries(vterm-dump ${LIBVTERM_TARGET})
